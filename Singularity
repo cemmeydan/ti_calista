@@ -10,18 +10,26 @@ From: dynverse/dynwrap:bioc
 %labels
     version 0.1.7
 
-%setup
-    mkdir /scratchLocal
-    mkdir /pbtech_mounts
-    mkdir /pbtech_mounts/softlib001
-    mkdir /athena
-    mkdir /zenodotus
+
+    
+    
+    
+    
+    
 
 %files
 
     . /code
 
 %post
+    mkdir /scratchLocal
+    mkdir /pbtech_mounts
+    mkdir /pbtech_mounts/softlib001
+    mkdir /athena
+    mkdir /zenodotus
+
+
+
     chmod -R 755 '/code'
     R -e 'devtools::install_cran("destiny")'
     apt-get update && apt-get install -y libcgal-dev libglu1-mesa-dev libglu1-mesa-dev libjpeg-dev libtiff-dev tcl-dev patch
